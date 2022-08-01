@@ -82,6 +82,6 @@ function render(){
     deleteButton.id = books.id;
     
     List.appendChild(element);
-    element.appendChild(deleteButton)
+    element.appendChild(deleteButton);
   });
 }
