@@ -1,87 +1,83 @@
-
-//Model Section
+// Model Section
 let books;
 
-//Retrieve localStorage
-const savedBooks = JSON.parse(localStorage.getItem ('books'));
+// Retrieve localStorage
+const savedBooks = JSON.parse(localStorage.getItem('books'));
 
-if (Array.isArray(savedBooks)){
-books = savedBooks;
-}else{
-  books  = [{
-    title:'Das' , 
-    author:'Doy',
-    id: '1'
+if (Array.isArray(savedBooks)) {
+  books = savedBooks;
+} else {
+  books = [{
+    title: 'Das',
+    author: 'Doy',
+    id: '1',
   }];
 }
 
-render();
-
-let list = document.querySelector('.awesomeList');
-
-    //Save a Book
-function createBooks(title, author) {
-  const id = '' + new Date().getTime();
-
-  books.push({
-    title: title,
-    author: author,
-    id: id
-  });
-
-  saveBooks();
-}
-
-     //Deletes a Book
-function removeBooks(idToDelete){
-  books = books.filter(function (books){
-    if (books.id !== idToDelete){
-      return true;
-    }else{
-      return false;
-    }
-  });
-
-  saveBooks();
-}
-
-function saveBooks(){
+function saveBooks() {
   localStorage.setItem('books', JSON.stringify(books));
 }
 
-//Controller
-function addBook () {
-  let titletextbox =document.getElementById('title');
-  let authortextbox = document.getElementById('author');
-  let title = titletextbox.value;
-  let author = authortextbox.value;  
+// Save a Book
+function createBooks(title, author) {
+  const id = `${new Date().getTime()}`;
 
-  createBooks(title, author);
-  render();
+  books.push({
+    title,
+    author,
+    id,
+  });
+
+  saveBooks();
 }
 
-function deleteBook (event){
-  const deleteButton = event.target;
-  const idToDelete = deleteButton.id;  
-  removeBooks(idToDelete);
-  render();
+// Deletes a Book
+function removeBooks(idToDelete) {
+  books = books.filter((books) => {
+    if (books.id !== idToDelete) {
+      return true;
+    }
+    return false;
+  });
+
+  saveBooks();
 }
 
-//View
-function render(){
+const render = () => {
   document.querySelector('.awesomeList').innerHTML = '';
-  books.forEach(function(books) {    
-    let List = document.querySelector('.awesomeList');
-    let element = document.createElement('div');
-    element.innerText = books.title +  '\n'  + books.author + '\n';
+  books.forEach((books) => {
+    const List = document.querySelector('.awesomeList');
+    const element = document.createElement('div');
+    element.innerText = `${books.title}\n${books.author}\n`;
 
-    //Remove Button
+    function deleteBook(event) {
+      const deleteButton = event.target;
+      const idToDelete = deleteButton.id;
+      removeBooks(idToDelete);
+      render();
+    }
+
+    // Remove Button
     const deleteButton = document.createElement('button');
-    deleteButton.innerText =  'Remove'; 
-    deleteButton.onclick = deleteBook;    
+    deleteButton.innerText = 'Remove';
+    deleteButton.onclick = deleteBook;
     deleteButton.id = books.id;
-    
+
     List.appendChild(element);
     element.appendChild(deleteButton);
   });
-}
+};
+
+// Controller
+const button = document.querySelector('.button');
+button.addEventListener('click', () => {
+  const titletextbox = document.getElementById('title');
+  const authortextbox = document.getElementById('author');
+  const title = titletextbox.value;
+  const author = authortextbox.value;
+
+  createBooks(title, author);
+  render();
+});
+
+render();
