@@ -14,7 +14,7 @@ const render = () => {
     const List = document.querySelector('.awesomeList');
     const element = document.createElement('div');
     element.classList.add('eachBook');
-    element.innerText = `${books.title} by ${books.author}`;
+    element.innerText = `"${books.title}" by ${books.author}`;
     List.appendChild(element);
 
     function deleteBook(event) {
