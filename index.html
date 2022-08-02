@@ -8,17 +8,18 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Awesome Books</h1>
+  <h1> All Awesome Books</h1>
   <div class="awesomeList"></div>
-  <div class="InputForm">
-    <input type="text" id="title" placeholder="Title"/>
+  <form class="InputForm">
+    <h2>Add a new book.</h2>
+    <input type="text" name="bookTitle" id="title" placeholder="Title">
     <br>
-    <input type="text" id ="author"  placeholder="Author"/>
+    <input type="text" name="bookAuthor" id ="author"  placeholder="Author">
     <br>
-    <Button class="button" type="submit">Add Book</Button>
-  </div>  
+    <button class="button" type="submit">Add</button>
+  </form>  
   
 
-<script src="js/app.js"></script>
+  <script type="module" src="js/logic.js"></script>
 </body>
 </html>

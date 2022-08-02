@@ -1,3 +1,63 @@
 body {
   background-color: white;
+  width: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+}
+
+.awesomeList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  padding-bottom: 1rem;
+}
+
+.awesomeList::after {
+  border-bottom: 1.75px solid rgb(10, 10, 10);
+  content: "";
+  display: block;
+  width: 15%;
+  margin-top: 22px;
+}
+
+.eachBook {
+  border: 1px solid black;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.eachBook:nth-child(odd) {
+  background-color: lightgray;
+}
+
+.InputForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  margin-inline: 40%;
+}
+
+#title,
+#author {
+  width: 100%;
+  padding: 4px;
+  font-size: 1rem;
+}
+
+.InputForm button,
+.delButton {
+  align-self: flex-end;
+  border-bottom: 4px solid black;
+  border-right: 4px solid black;
+  padding: 5px;
 }
