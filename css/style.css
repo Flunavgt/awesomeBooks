@@ -27,7 +27,7 @@ h1 {
 
 .eachBook {
   border: 1px solid black;
-  padding: .5rem;
+  padding: 0.5rem;
   display: flex;
   justify-content: space-between;
   width: 60%;

@@ -1,12 +1,6 @@
-import Bookshelf from './books.js'
+import Bookshelf from './books.js';
 
-let myBookshelf = new Bookshelf();
-
-if (myBookshelf.LoadBooksFromLocal()) {
-  console.log("There are local books!")
-} else {
-  console.log("No books where found :(")
-}
+const myBookshelf = new Bookshelf();
 
 const render = () => {
   document.querySelector('.awesomeList').innerHTML = '';
@@ -31,7 +25,7 @@ const render = () => {
     deleteButton.classList.add('delButton');
     deleteButton.onclick = deleteBook;
     deleteButton.id = books.id;
-    element.appendChild(deleteButton);    
+    element.appendChild(deleteButton);
   });
 };
 
