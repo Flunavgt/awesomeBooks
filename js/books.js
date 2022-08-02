@@ -1,52 +1,54 @@
 export default class Bookshelf {
-    #books;
+  #books;
 
-    constructor() {
-      this.#books = {};
-    }
+  constructor() {
+    this.#books = {};
+  }
 
-    // Setters
-    SetBooks(books) {
-      this.#books = books;
-    }
+  // Setters
+  SetBooks(books) {
+    this.#books = books;
+  }
 
-    // Getter
-    get Books() {
-      return this.#books;
-    }
+  // Getter
+  get Books() {
+    return this.#books;
+  }
 
-    // Methods
-    AddBook(title, author) {
-      const id = `${new Date().getTime()}`;
-      this.#books.push({
-        title,
-        author,
-        id,
-      });
-    }
+  // Methods 
+  AddBook(title, author) {
+    const id = `${new Date().getTime()}`;
+    this.#books.push({
+      title,
+      author,
+      id,
+    });
+  }
 
-    DeleteBook(id) {
-      const localBooks = this.#books;
+  DeleteBook(id) {
+    let localBooks = this.#books;
 
-      this.#books = localBooks.filter((books) => {
-        if (books.id !== id) {
-          return true;
-        }
-        return false;
-      });
-    }
-
-    SaveBookshelfLocal() {
-      localStorage.setItem('books', JSON.stringify(this.#books));
-    }
-
-    LoadBooksFromLocal() {
-      const savedBooks = JSON.parse(localStorage.getItem('books'));
-
-      if (Array.isArray(savedBooks)) {
-        this.#books = savedBooks;
+    this.#books = localBooks.filter((books) => {
+      if (books.id !== id) {
         return true;
       }
       return false;
+    });
+  }
+
+  SaveBookshelfLocal() {
+    localStorage.setItem('books', JSON.stringify(this.#books));
+  }
+
+  LoadBooksFromLocal() {
+    const savedBooks = JSON.parse(localStorage.getItem('books'));
+
+    if (Array.isArray(savedBooks)) {
+      this.#books = savedBooks;
+      return true;
+    } else {
+      return false;
     }
+  }
+
 }

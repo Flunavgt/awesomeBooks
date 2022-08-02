@@ -1,35 +1,69 @@
-import Bookshelf from './books.js'
+// Model Section
+let books;
 
-let myBookshelf = new Bookshelf();
+// Retrieve localStorage
+const savedBooks = JSON.parse(localStorage.getItem('books'));
 
-if (myBookshelf.LoadBooksFromLocal()) { 
+if (Array.isArray(savedBooks)) {
+  books = savedBooks;
 } else {
-  console.log("No books where found :(")
+  books = [{
+    title: 'Das',
+    author: 'Doy',
+    id: '1',
+  }];
+}
+
+function saveBooks() {
+  localStorage.setItem('books', JSON.stringify(books));
+}
+
+// Save a Book
+function createBooks(title, author) {
+  const id = `${new Date().getTime()}`;
+
+  books.push({
+    title,
+    author,
+    id,
+  });
+
+  saveBooks();
+}
+
+// Deletes a Book
+function removeBooks(idToDelete) {
+  books = books.filter((books) => {
+    if (books.id !== idToDelete) {
+      return true;
+    }
+    return false;
+  });
+
+  saveBooks();
 }
 
 const render = () => {
   document.querySelector('.awesomeList').innerHTML = '';
-  myBookshelf.Books.forEach((books) => {
+  books.forEach((books) => {
     const List = document.querySelector('.awesomeList');
     const element = document.createElement('div');
-    element.classList.add('eachBook');
-    element.innerText = `${books.title} by ${books.author}`;
-    List.appendChild(element);
+    element.innerText = `${books.title}\n${books.author}\n`;
 
     function deleteBook(event) {
       const deleteButton = event.target;
       const idToDelete = deleteButton.id;
-      myBookshelf.DeleteBook(idToDelete);
-      myBookshelf.SaveBookshelfLocal();
+      removeBooks(idToDelete);
       render();
     }
 
     // Remove Button
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Remove';
-    deleteButton.classList.add('delButton');
     deleteButton.onclick = deleteBook;
     deleteButton.id = books.id;
+
+    List.appendChild(element);
     element.appendChild(deleteButton);
   });
 };
@@ -42,12 +76,7 @@ button.addEventListener('click', () => {
   const title = titletextbox.value;
   const author = authortextbox.value;
 
-  titletextbox.value = '';
-  authortextbox.value = '';
-
-  myBookshelf.AddBook(title, author);
-
-  myBookshelf.SaveBookshelfLocal();
+  createBooks(title, author);
   render();
 });
 
