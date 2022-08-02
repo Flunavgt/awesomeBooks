@@ -1,11 +1,8 @@
-import Bookshelf from './books.js'
+import Bookshelf from './books.js';
 
-let myBookshelf = new Bookshelf();
+const myBookshelf = new Bookshelf();
 
-if (myBookshelf.LoadBooksFromLocal()) { 
-} else {
-  console.log("No books where found :(")
-}
+myBookshelf.LoadBooksFromLocal();
 
 const render = () => {
   document.querySelector('.awesomeList').innerHTML = '';
@@ -41,12 +38,7 @@ button.addEventListener('click', () => {
   const authortextbox = document.getElementById('author');
   const title = titletextbox.value;
   const author = authortextbox.value;
-
-  titletextbox.value = '';
-  authortextbox.value = '';
-
   myBookshelf.AddBook(title, author);
-
   myBookshelf.SaveBookshelfLocal();
   render();
 });

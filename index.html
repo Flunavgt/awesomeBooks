@@ -10,14 +10,14 @@
 <body>
   <h1> All Awesome Books</h1>
   <div class="awesomeList"></div>
-  <div class="InputForm">
+  <form class="InputForm">
     <h2>Add a new book.</h2>
-    <input type="text" id="title" placeholder="Title" required/>
+    <input type="text" name="bookTitle" id="title" placeholder="Title">
     <br>
-    <input type="text" id ="author"  placeholder="Author" required/>
+    <input type="text" name="bookAuthor" id ="author"  placeholder="Author">
     <br>
     <button class="button" type="submit">Add</button>
-  </div>  
+  </form>  
   
 
   <script type="module" src="js/logic.js"></script>

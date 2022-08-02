@@ -15,7 +15,7 @@ export default class Bookshelf {
     return this.#books;
   }
 
-  // Methods 
+  // Methods
   AddBook(title, author) {
     const id = `${new Date().getTime()}`;
     this.#books.push({
@@ -26,7 +26,7 @@ export default class Bookshelf {
   }
 
   DeleteBook(id) {
-    let localBooks = this.#books;
+    const localBooks = this.#books;
 
     this.#books = localBooks.filter((books) => {
       if (books.id !== id) {
@@ -46,9 +46,7 @@ export default class Bookshelf {
     if (Array.isArray(savedBooks)) {
       this.#books = savedBooks;
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
-
 }
