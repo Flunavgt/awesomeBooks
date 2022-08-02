@@ -1,4 +1,4 @@
-<<<<<<< skeleton
+
 # Awesome Books
 
 > In this project, is ment to build a basic website that allows users to add/remove books from a list. 
