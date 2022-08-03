@@ -46,18 +46,26 @@ button.addEventListener('click', () => {
 var dt = new Date();
 document.getElementById('date-time').innerHTML=dt;
 
-
-
 const book = document.getElementById('book');
 const list = document.getElementById('list');
 const contact = document.getElementById('contact');
-
-
 
 book.addEventListener('click', () => {
 document.querySelector('.awesomeList').style.display = 'none';
 document.querySelector('.newBook').style.display = 'flex';
 document.querySelector('.contact').style.display = 'none';
+});
+
+list.addEventListener('click', () => {
+document.querySelector('.awesomeList').style.display = 'flex';
+document.querySelector('.newBook').style.display = 'none';
+document.querySelector('.contact').style.display = 'none';
+});
+
+contact.addEventListener('click', () => {
+document.querySelector('.awesomeList').style.display = 'none';
+document.querySelector('.newBook').style.display = 'none';
+document.querySelector('.contact').style.display = 'flex';
 });
 
 render();
