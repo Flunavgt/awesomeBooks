@@ -6,7 +6,7 @@ myBookshelf.LoadBooksFromLocal();
 
 const render = () => {
   document.querySelector('.awesomeList').innerHTML = '';
-  if (myBookshelf.Books >0) {
+  if (myBookshelf.Books) {
     myBookshelf.Books.forEach((books) => {
       const List = document.querySelector('.awesomeList');
       const element = document.createElement('div');
