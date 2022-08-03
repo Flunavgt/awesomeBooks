@@ -31,8 +31,13 @@ export default class Bookshelf {
     this.#books = localBooks.filter((books) => {
       if (books.id !== id) {
         return true;
-      }
-      return false;
+      } else {
+  books = [{
+    title: 'Das',
+    author: 'Doy',
+    id: '1',
+  }];
+      
     });
   }
 
