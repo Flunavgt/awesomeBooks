@@ -2,7 +2,7 @@ export default class Bookshelf {
   #books;
 
   constructor() {
-    this.#books = {};
+    this.#books = [];
   }
 
   // Setters
