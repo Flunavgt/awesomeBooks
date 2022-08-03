@@ -11,6 +11,11 @@
 
 To get a local copy up and running follow these simple example steps.
 
+## Live DEMO
+
+ [Live Demo Link](https://flunavgt.github.io/awesomeBooks/)
+
+## Get a local copy.
 You may git clone with the following link : https://github.com/Flunavgt/awesomeBooks.git
 
 
