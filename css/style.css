@@ -22,8 +22,6 @@ body {
 
 .navbar:hover {
   cursor: pointer;
-
-
 }
 
 .currentTime {
@@ -82,15 +80,10 @@ h1 {
   padding: 5px;
 }
 
-/* .newBook, */
-.contact{
-  display: none;
-}
-
 .contact {
-  /* display: flex; */
   flex-direction: column;
   align-items: center;
+  display: none;
 }
 
 #footer {
