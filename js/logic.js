@@ -54,18 +54,21 @@ book.addEventListener('click', () => {
 document.querySelector('.awesomeList').style.display = 'none';
 document.querySelector('.newBook').style.display = 'flex';
 document.querySelector('.contact').style.display = 'none';
+document.querySelector('h1').textContent = "Add a New Book"
 });
 
 list.addEventListener('click', () => {
 document.querySelector('.awesomeList').style.display = 'flex';
 document.querySelector('.newBook').style.display = 'none';
 document.querySelector('.contact').style.display = 'none';
+document.querySelector('h1').textContent = "All awesome Books"
 });
 
 contact.addEventListener('click', () => {
 document.querySelector('.awesomeList').style.display = 'none';
 document.querySelector('.newBook').style.display = 'none';
 document.querySelector('.contact').style.display = 'flex';
+document.querySelector('h1').textContent = "Contact Information"
 });
 
 render();

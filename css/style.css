@@ -5,6 +5,34 @@ body {
   font-weight: bold;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  border: solid;
+  width: 98%;
+  padding: 5px;
+}
+
+#list,
+#book {
+  border-right: 1px solid black;
+  margin-left: 5px;
+  padding-right: 10px;
+}
+
+.navbar:hover {
+  cursor: pointer;
+
+
+}
+
+.currentTime {
+  text-align: end;
+  padding-right: 1%;
+  padding-bottom: 2%;
+  padding-top: 3px;
+}
+
 h1 {
   text-align: center;
 }
@@ -56,4 +84,19 @@ h1 {
 
 .newBook, .contact{
   display: none;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  border: 1px solid black;
+  width: 97.5%;
+  margin-bottom: 10px;
 }
