@@ -38,7 +38,7 @@ h1 {
 }
 
 .awesomeList {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   color: black;
@@ -82,12 +82,13 @@ h1 {
   padding: 5px;
 }
 
-.newBook, .contact{
+/* .newBook, */
+.contact{
   display: none;
 }
 
 .contact {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
 }
