@@ -9,13 +9,6 @@
 - JavaScript
 - CSS
 
-## Live Demo (if available)
-
-[Pending live link](https://livedemo.com)
-
-
-
-
 To get a local copy up and running follow these simple example steps.
 
 You may git clone with the following link : https://github.com/Flunavgt/awesomeBooks.git
