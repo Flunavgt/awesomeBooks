@@ -43,4 +43,21 @@ button.addEventListener('click', () => {
   render();
 });
 
+var dt = new Date();
+document.getElementById('date-time').innerHTML=dt;
+
+
+
+const book = document.getElementById('book');
+const list = document.getElementById('list');
+const contact = document.getElementById('contact');
+
+
+
+book.addEventListener('click', () => {
+document.querySelector('.awesomeList').style.display = 'none';
+document.querySelector('.newBook').style.display = 'flex';
+document.querySelector('.contact').style.display = 'none';
+});
+
 render();
