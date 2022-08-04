@@ -45,8 +45,12 @@ button.addEventListener('click', () => {
   render();
 });
 
-const dt = new Date();
-document.getElementById('date-time').innerHTML = dt;
+function date () {
+  const dt = new Date();
+  document.getElementById('date-time').innerHTML = dt.toLocaleString('en-US');
+}
+date();
+setInterval(date, 1000);
 
 const book = document.getElementById('book');
 const list = document.getElementById('list');
